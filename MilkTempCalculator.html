@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="./mini.css">
+  <link rel="stylesheet" href="./MilkTempCalculator.css">
+  <script src="jquery-3.7.1.min.js"></script>
+  <script src="MilkTempCalculator.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row amount">
+      <div class="col-sm-12">
+        <h3>Amount</h3>
+      </div>
+    </div>
+
+    <div class="row amount cold">
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <label for="cold_amount_lock"><span class="icon-lock"></span></label>
+        <input type="radio" name="amount_lock" value="cold" id="cold_amount_lock">
+        <label for="cold_amount_inp">Cold (<span class="cold_tmp"></span>℃) Water (ml):</label>
+        <input type="number" min="0" value="60" step="5" id="cold_amount_inp"/>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <button onclick="setColdAmount(30)">1 oz</button>
+        <button onclick="setColdAmount(45)">1.5 oz</button>
+        <button onclick="setColdAmount(60)">2 oz</button>
+        <button onclick="setColdAmount(75)">2.5 oz</button>
+        <button onclick="setColdAmount(90)">3 oz</button>
+        <button onclick="setColdAmount(105)">3.5 oz</button>
+      </div>
+    </div>
+
+    <div class="row amount hot">
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <label for="hot_amount_lock"><span class="icon-lock"></span></label>
+        <input type="radio" name="amount_lock" value="hot" id="hot_amount_lock" checked="true">
+        <label for="hot_amount_inp">Hot (<span class="hot_tmp"></span>℃) Water (ml):</label>
+        <input type="number" min="0" value="60" step="5" id="hot_amount_inp" disabled="true"/>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <button onclick="setHotAmount(30)">1 oz</button>
+        <button onclick="setHotAmount(45)">1.5 oz</button>
+        <button onclick="setHotAmount(60)">2 oz</button>
+        <button onclick="setHotAmount(75)">2.5 oz</button>
+        <button onclick="setHotAmount(90)">3 oz</button>
+        <button onclick="setHotAmount(105)">3.5 oz</button>
+      </div>
+    </div>
+
+    <div class="row amount mix">
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <label for="mix_amount_lock"><span class="icon-lock"></span></label>
+        <input type="radio" name="amount_lock" value="mix" id="mix_amount_lock">
+        <label for="mix_amount_inp">Mix (<span class="mix_tmp"></span>℃) Water (ml):</label>
+        <input type="number" min="0" value="120" step="5" id="mix_amount_inp"/>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <button onclick="setMixAmount(60)">2 oz</button>
+        <button onclick="setMixAmount(75)">2.5 oz</button>
+        <button onclick="setMixAmount(90)">3 oz</button>
+        <button onclick="setMixAmount(105)">3.5 oz</button>
+        <button onclick="setMixAmount(120)">4 oz</button>
+        <button onclick="setMixAmount(135)">4.5 oz</button>
+        <button onclick="setMixAmount(150)">5 oz</button>
+      </div>
+    </div>
+
+    <div class="row temperature">
+      <div class="col-sm-12">
+        <h3>Temperature</h3>
+      </div>
+    </div>
+
+    <div class="row temperature cold">
+      <div class="col-sm-6 col-md-3 col-lg-5">
+        <label>Cold Water Temperature:</label>
+      </div>
+      <div class="col-sm-6 col-md-3 col-lg-2">
+        <input type="radio" name="cold_tmp" id="cold_tmp_20" value="20">
+        <label for="cold_tmp_20">20℃</label>
+      </div>
+      <div class="col-sm-6 col-md-3 col-lg-2">
+        <input type="radio" name="cold_tmp" id="cold_tmp_22_5" value="22.5" checked="true">
+        <label for="cold_tmp_22_5">22.5℃</label>
+      </div>
+      <div class="col-sm-6 col-md-3 col-lg-2">
+        <input type="radio" name="cold_tmp" id="cold_tmp_25" value="25">
+        <label for="cold_tmp_25">25℃</label>
+      </div>
+    </div>
+
+    <div class="row temperature hot">
+      <div class="col-sm-6 col-md-3 col-lg-5">
+        <label>Hot Water Temperature:</label>
+      </div>
+
+      <div class="col-sm-6 col-md-2 col-lg-1">
+        <input type="radio" name="hot_tmp" id="hot_tmp_60" value="60" checked="true">
+        <label for="hot_tmp_60">60℃</label>
+      </div>
+      <div class="col-sm-6 col-md-2 col-lg-1">
+        <input type="radio" name="hot_tmp" id="hot_tmp_70" value="70">
+        <label for="hot_tmp_70">70℃</label>
+      </div>
+      <div class="col-sm-6 col-md-2 col-lg-1">
+        <input type="radio" name="hot_tmp" id="hot_tmp_80" value="80">
+        <label for="hot_tmp_80">80℃</label>
+      </div>
+      <div class="col-sm-6 col-md-2 col-lg-1">
+        <input type="radio" name="hot_tmp" id="hot_tmp_85" value="85">
+        <label for="hot_tmp_85">85℃</label>
+      </div>
+      <div class="col-sm-6 col-md-2 col-lg-1">
+        <input type="radio" name="hot_tmp" id="hot_tmp_90" value="90">
+        <label for="hot_tmp_90">90℃</label>
+      </div>
+      <div class="col-sm-6 col-md-2 col-lg-1">
+        <input type="radio" name="hot_tmp" id="hot_tmp_95" value="95">
+        <label for="hot_tmp_95">95℃</label>
+      </div>
+      <div class="col-sm-6 col-md-2 col-lg-1">
+        <input type="radio" name="hot_tmp" id="hot_tmp_100" value="100">
+        <label for="hot_tmp_100">100℃</label>
+      </div>
+    </div>
+
+  </div>  
+</body>
+</html>
+
+

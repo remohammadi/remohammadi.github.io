@@ -1,0 +1,12 @@
+.cold {
+  background-color: #daeeff;
+}
+
+.hot {
+  background-color: #ffcccc;
+}
+
+.mix_tmp {
+  padding: 3px 5px;
+  font-weight: bold;
+}
