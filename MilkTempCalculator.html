@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Calculator</title>
-  <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css">
+  <link rel="stylesheet" href="./mini.css">
   <link rel="stylesheet" href="./MilkTempCalculator.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="jquery-3.7.1.min.js"></script>
   <script src="MilkTempCalculator.js"></script>
 </head>
 
@@ -22,8 +22,8 @@
 
     <div class="row amount cold">
       <div class="col-sm-12 col-md-6 col-lg-6">
-        <label for="cold_amount_lock"><span class="icon-lock"></span></label>
-        <input type="radio" name="amount_lock" value="cold" id="cold_amount_lock">
+        <label for="cold_amount_variable"><span id="cold_amount_icon"></span></label>
+        <input type="radio" name="amount_variable" value="cold" id="cold_amount_variable">
         <label for="cold_amount_inp">Cold (<span class="cold_tmp"></span>℃) Water (ml):</label>
         <input type="number" min="0" value="60" step="5" id="cold_amount_inp"/>
       </div>
@@ -39,8 +39,8 @@
 
     <div class="row amount hot">
       <div class="col-sm-12 col-md-6 col-lg-6">
-        <label for="hot_amount_lock"><span class="icon-lock"></span></label>
-        <input type="radio" name="amount_lock" value="hot" id="hot_amount_lock" checked="true">
+        <label for="hot_amount_variable"><span id="hot_amount_icon"></span></label>
+        <input type="radio" name="amount_variable" value="hot" id="hot_amount_variable" checked="true">
         <label for="hot_amount_inp">Hot (<span class="hot_tmp"></span>℃) Water (ml):</label>
         <input type="number" min="0" value="60" step="5" id="hot_amount_inp" disabled="true"/>
       </div>
@@ -56,8 +56,8 @@
 
     <div class="row amount mix">
       <div class="col-sm-12 col-md-6 col-lg-6">
-        <label for="mix_amount_lock"><span class="icon-lock"></span></label>
-        <input type="radio" name="amount_lock" value="mix" id="mix_amount_lock">
+        <label for="mix_amount_variable"><span id="mix_amount_icon"></span></label>
+        <input type="radio" name="amount_variable" value="mix" id="mix_amount_variable">
         <label for="mix_amount_inp">Mix (<span class="mix_tmp"></span>℃) Water (ml):</label>
         <input type="number" min="0" value="120" step="5" id="mix_amount_inp"/>
       </div>

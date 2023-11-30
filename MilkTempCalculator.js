@@ -2,22 +2,73 @@ let calc = function() {
     var cold_amount = parseInt($('#cold_amount_inp').val(), 10);
     var hot_amount = parseInt($('#hot_amount_inp').val(), 10);
     var mix_amount = parseInt($('#mix_amount_inp').val(), 10);
-    let amount_lock = $('input[name="amount_lock"]:checked').val();
-    switch (amount_lock) {
+    let amount_variable = $('input[name="amount_variable"]:checked').val();
+    switch (amount_variable) {
         case 'cold':
             cold_amount = mix_amount - hot_amount;
             $('#cold_amount_inp').val(cold_amount);
+            $('#cold_amount_inp').prop('disabled', true);
+            $('.cold button').prop('disabled', true);
+            $('.cold button').removeClass("primary");
+            $('#cold_amount_icon').removeClass("icon-edit");
+            $('#cold_amount_icon').addClass("icon-settings");
+
+            $('#hot_amount_inp').prop('disabled', false);
+            $('.hot button').prop('disabled', false);
+            $('.hot button').addClass("secondary");
+            $('#hot_amount_icon').removeClass("icon-settings");
+            $('#hot_amount_icon').addClass("icon-edit");
+
+            $('#mix_amount_inp').prop('disabled', false);
+            $('.mix button').prop('disabled', false);
+            $('.mix button').addClass("inverse");
+            $('#mix_amount_icon').removeClass("icon-settings");
+            $('#mix_amount_icon').addClass("icon-edit");
         break;
         case 'hot':
             hot_amount = mix_amount - cold_amount;
             $('#hot_amount_inp').val(hot_amount);
+            $('#hot_amount_inp').prop('disabled', true);
+            $('.hot button').prop('disabled', true);
+            $('.hot button').removeClass("secondary");
+            $('#hot_amount_icon').removeClass("icon-edit");
+            $('#hot_amount_icon').addClass("icon-settings");
+
+            $('#cold_amount_inp').prop('disabled', false);
+            $('.cold button').prop('disabled', false);
+            $('.cold button').addClass("primary");
+            $('#cold_amount_icon').removeClass("icon-settings");
+            $('#cold_amount_icon').addClass("icon-edit");
+
+            $('#mix_amount_inp').prop('disabled', false);
+            $('.mix button').prop('disabled', false);
+            $('.mix button').addClass("inverse");
+            $('#mix_amount_icon').removeClass("icon-settings");
+            $('#mix_amount_icon').addClass("icon-edit");
         break;
         case 'mix':
             mix_amount = hot_amount + cold_amount;
             $('#mix_amount_inp').val(mix_amount);
+            $('#mix_amount_inp').prop('disabled', true);
+            $('.mix button').prop('disabled', true);
+            $('.mix button').removeClass("inverse");
+            $('#mix_amount_icon').removeClass("icon-edit");
+            $('#mix_amount_icon').addClass("icon-settings");
+
+            $('#cold_amount_inp').prop('disabled', false);
+            $('.cold button').prop('disabled', false);
+            $('.cold button').addClass("primary");
+            $('#cold_amount_icon').removeClass("icon-settings");
+            $('#cold_amount_icon').addClass("icon-edit");
+
+            $('#hot_amount_inp').prop('disabled', false);
+            $('.hot button').prop('disabled', false);
+            $('.hot button').addClass("secondary");
+            $('#hot_amount_icon').removeClass("icon-settings");
+            $('#hot_amount_icon').addClass("icon-edit");
         break;
         default:
-        console.log(`Sorry, ${amount_lock} not expected.`);
+        console.log(`Sorry, ${amount_variable} not expected.`);
     }
 
     let cold_tmp = parseFloat($('input[name="cold_tmp"]:checked').val(), 10);
